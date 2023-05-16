@@ -1,0 +1,16 @@
+{
+  "name": "buggyzap/ector_cli",
+  "description": "CLI commands for PHP",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Ector\\Cli\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^7.4",
+    "symfony/console": "^5.0"
+  },
+  "minimum-stability": "dev",
+  "bin": ["bin/ector_cli"]
+}
