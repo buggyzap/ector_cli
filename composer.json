@@ -2,6 +2,7 @@
   "name": "buggyzap/ector_cli",
   "description": "CLI commands for PHP",
   "type": "library",
+  "license": "MIT",
   "autoload": {
     "psr-4": {
       "Ector\\Cli\\": "src/"
