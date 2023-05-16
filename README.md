@@ -11,7 +11,23 @@ composer require buggyzap/ector_cli
 ## Usage
 
 ```bash
-vendor/bin/ector
+vendor/bin/ector_cli
+```
+
+## Develop
+
+Run locally to develop the CLI
+
+### Start container
+
+```bash
+docker-compose up -d
+```
+
+### Execute commands
+
+```bash
+docker-compose exec app bin/ector_cli
 ```
 
 ## Available commands
