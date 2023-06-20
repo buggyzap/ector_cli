@@ -43,8 +43,8 @@ class Ector_cli extends Module
 
         parent::__construct();
 
-        $this->displayName = $this->l('Ector Cli');
-        $this->description = $this->l('Cli to help developers to use helper functions and commands');
+        $this->displayName = $this->l('Ector CLI');
+        $this->description = $this->l('CLI to help developers to use helper functions and commands');
         $this->confirmUninstall = $this->l('Are you sure you want to uninstall?');
     }
 }

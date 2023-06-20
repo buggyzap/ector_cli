@@ -9,7 +9,6 @@
     }
   },
   "require": {
-    "php": "^7.4",
     "symfony/console": "^5.0"
   },
   "minimum-stability": "dev",
