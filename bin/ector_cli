@@ -3,7 +3,6 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Ector\Cli\Commands\MyCommand;
 use Ector\Cli\Commands\MigrateMagentoCommand;
 use Ector\Cli\Commands\MigratePrestashopCommand;
 use Symfony\Component\Console\Application;
