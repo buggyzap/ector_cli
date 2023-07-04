@@ -5,6 +5,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Ector\Cli\Commands\MigrateMagentoCommand;
 use Ector\Cli\Commands\MigratePrestashopCommand;
+use Ector\Cli\Commands\TestOutputCommand;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
@@ -12,5 +13,6 @@ $application = new Application();
 // Register your commands here
 $application->add(new MigrateMagentoCommand());
 $application->add(new MigratePrestashopCommand());
+$application->add(new TestOutputCommand());
 
 $application->run();

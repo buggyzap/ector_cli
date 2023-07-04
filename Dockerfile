@@ -1,6 +1,10 @@
 # Use the official PHP image as the base
 FROM php:7.4-cli
 
+# PHP extensions
+
+RUN docker-php-ext-install pdo pdo_mysql
+
 # Set the working directory inside the container
 WORKDIR /app
 
