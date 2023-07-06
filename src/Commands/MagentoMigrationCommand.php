@@ -16,7 +16,7 @@ class MagentoMigrationCommand extends Command
     {
         $this
             ->setDescription('Migrate from Magento to Prestashop')
-            ->setHelp('This command migrates products url from Magento to your PrestaShop database.');
+            ->setHelp('This command migrates Magento permalinks to Prestashop urls and create 301 redirects dinamically, writing those records in your PrestaShop database.');
 
         // Additional command configuration specific to Magento migration
     }

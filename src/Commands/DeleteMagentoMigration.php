@@ -15,7 +15,7 @@ class DeleteMagentoMigration extends Command
     {
         $this
             ->setDescription('Delete Magento migration')
-            ->setHelp('This command deletes magento urls from your PrestaShop Database');
+            ->setHelp('This command deletes Magento permalinks stored in your PrestaShop database.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
