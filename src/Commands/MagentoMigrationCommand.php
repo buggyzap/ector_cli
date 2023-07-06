@@ -3,12 +3,12 @@
 namespace Ector\Cli\Commands;
 
 use Ector\Cli\Classes\Commands_Operations\Magento_Migration;
-use Ector\Cli\Classes\Tools\Pdo_Connection;
+use Ector\Cli\Classes\Tools\Env_Loader;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class MigrateMagentoCommand extends Command
+class MagentoMigrationCommand extends Command
 {
     protected static $defaultName = 'magento_migration:execute';
 
@@ -23,17 +23,15 @@ class MigrateMagentoCommand extends Command
 
     protected function initialize(InputInterface $input, OutputInterface $output)
     {
-        parent::initialize($input, $output);
-
-        // Connect to the database
-        Pdo_Connection::employ();
-
-        $output->writeln('<info>Database connected successfully!</info>');
+        Env_Loader::employ();
+        $output->writeln('<info>Env loaded successfully!</info>');
     }
 
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        parent::initialize($input, $output);
+
         $output->writeln('Migrating from Magento to PrestaShop...');
 
         try {

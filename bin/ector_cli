@@ -9,7 +9,7 @@ $isPsEnvironment = defined(_PS_VERSION_);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Ector\Cli\Commands\MigrateMagentoCommand;
+use Ector\Cli\Commands\MagentoMigrationCommand;
 use Ector\Cli\Commands\TestOutputCommand;
 use Ector\Cli\Commands\DeleteMagentoMigration;
 use Symfony\Component\Console\Application;
@@ -17,7 +17,7 @@ use Symfony\Component\Console\Application;
 $application = new Application();
 
 // Register your commands here
-$application->add(new MigrateMagentoCommand());
+$application->add(new MagentoMigrationCommand());
 $application->add(new TestOutputCommand());
 $application->add(new DeleteMagentoMigration());
 

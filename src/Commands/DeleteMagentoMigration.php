@@ -24,6 +24,7 @@ class DeleteMagentoMigration extends Command
 
         try {
             Delete_Magento_Migration::execute();
+            $output->writeln('<info>Operation completed!</info>');
             return 0;
         } catch (\Exception $e) {
             throw new \Exception($e->getMessage());

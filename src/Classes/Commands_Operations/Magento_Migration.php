@@ -10,6 +10,13 @@ namespace Ector\Cli\Classes\Commands_Operations {
     {
         public static function execute()
         {
+            $product_urls = self::fetchFromMagentoDb();
+
+            self::writeInPrestashopDb($product_urls);
+        }
+
+        private static function fetchFromMagentoDb()
+        {
             $PDO = PDO::employ();
 
             $sql = "SELECT request_path FROM mg_url_rewrite WHERE request_path LIKE '/%.html';";
@@ -27,6 +34,11 @@ namespace Ector\Cli\Classes\Commands_Operations {
                 $product_urls[] = $row['request_path'];
             }
 
+            return $product_urls;
+        }
+
+        private static function writeInPrestashopDb($product_urls)
+        {
             $db = \Db::getInstance();
 
             $output = new ConsoleOutput();
@@ -39,6 +51,7 @@ namespace Ector\Cli\Classes\Commands_Operations {
                     $db->execute($sql);
                 } catch (\Exception $e) {
                     echo $e->getMessage();
+                    continue;
                 }
 
                 $progressBar->advance();

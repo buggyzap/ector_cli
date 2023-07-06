@@ -8,8 +8,6 @@ namespace Ector\Cli\Classes\Tools {
     {
         public static function employ()
         {
-            Env_Loader::employ();
-
             $host = $_ENV['DB_HOST'];
             $db_name = $_ENV['DB_NAME_MG'];
             $username = $_ENV['DB_USERNAME'];
