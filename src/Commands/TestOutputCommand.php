@@ -8,7 +8,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Question\Question;
-use Ector\Cli\Classes\MigrateMagentoClass;
+use Ector\Cli\Classes\Ec_Cli_Class_Magento_Migration;
 use Ector\Cli\Classes\PdoConnection as PDO;
 
 class TestOutputCommand extends Command

@@ -1,18 +1,24 @@
 #!/usr/bin/env php
 <?php
 
+$path = dirname(__FILE__) . "/../../../config/config.inc.php";
+$isPsEnvironment = file_exists($path);
+
+if ($isPsEnvironment) require_once $path;
+$isPsEnvironment = defined(_PS_VERSION_);
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Ector\Cli\Commands\MigrateMagentoCommand;
-use Ector\Cli\Commands\MigratePrestashopCommand;
 use Ector\Cli\Commands\TestOutputCommand;
+use Ector\Cli\Commands\DeleteMagentoMigration;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
 
 // Register your commands here
 $application->add(new MigrateMagentoCommand());
-$application->add(new MigratePrestashopCommand());
 $application->add(new TestOutputCommand());
+$application->add(new DeleteMagentoMigration());
 
 $application->run();
