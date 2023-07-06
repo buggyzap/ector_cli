@@ -8,6 +8,8 @@ namespace Ector\Cli\Classes\Commands_Operations {
 
     class Magento_Migration extends Command_Operations
     {
+
+
         public static function execute()
         {
             $product_urls = self::fetchFromMagentoDb();

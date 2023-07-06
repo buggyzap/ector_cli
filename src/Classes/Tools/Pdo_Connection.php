@@ -2,12 +2,14 @@
 
 namespace Ector\Cli\Classes\Tools {
 
-    use Ector\Cli\Classes\Tools\Env_Loader;
+    use Symfony\Component\Console\Output\ConsoleOutput;
 
     class Pdo_Connection extends Tool
     {
         public static function employ()
         {
+            $output = new ConsoleOutput();
+
             $host = $_ENV['DB_HOST'];
             $db_name = $_ENV['DB_NAME_MG'];
             $username = $_ENV['DB_USERNAME'];
@@ -16,9 +18,11 @@ namespace Ector\Cli\Classes\Tools {
             $dsn = 'mysql:host=' . $host . ';dbname=' . $db_name;
 
             try {
-                return new \PDO($dsn, $username, $password);
+                $PDO = new \PDO($dsn, $username, $password);
+                $output->writeln('<info>Magento database connected successfully!</info>');
+                return $PDO;
             } catch (\PDOException $e) {
-                echo 'Connection failed : ' . $e->getMessage();
+                $output->writeln('<error>Magento database connection failed : </error> ' . $e->getMessage());
             }
         }
     }
