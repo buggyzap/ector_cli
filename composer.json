@@ -5,8 +5,7 @@
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "Ector\\Cli\\Commands\\": "src/commands/",
-      "Ector\\Cli\\Classes\\": "src/classes/"
+      "Ector\\Cli\\" : "src/"
     }
   },
   "require": {
