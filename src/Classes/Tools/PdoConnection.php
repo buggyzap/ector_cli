@@ -4,7 +4,7 @@ namespace Ector\Cli\Classes\Tools {
 
     use Symfony\Component\Console\Output\ConsoleOutput;
 
-    class Pdo_Connection extends Tool
+    class PdoConnection extends Tool
     {
         public static function employ()
         {

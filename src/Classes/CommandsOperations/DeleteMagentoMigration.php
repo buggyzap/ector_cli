@@ -1,8 +1,8 @@
 <?php
 
-namespace Ector\Cli\Classes\Commands_Operations {
+namespace Ector\Cli\Classes\CommandsOperations {
 
-    class Delete_Magento_Migration extends Command_Operations
+    class DeleteMagentoMigration extends CommandOperations
     {
         public static function execute()
         {

@@ -4,7 +4,7 @@ namespace Ector\Cli\Classes\Tools {
 
     use Dotenv\Dotenv;
 
-    class Env_Loader extends Tool
+    class EnvLoader extends Tool
     {
         public static function employ()
         {

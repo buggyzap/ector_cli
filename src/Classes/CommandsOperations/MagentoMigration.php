@@ -1,12 +1,12 @@
 <?php
 
-namespace Ector\Cli\Classes\Commands_Operations {
+namespace Ector\Cli\Classes\CommandsOperations {
 
-    use Ector\Cli\Classes\Tools\Pdo_Connection as PDO;
+    use Ector\Cli\Classes\Tools\PdoConnection as PDO;
     use Symfony\Component\Console\Helper\ProgressBar;
     use Symfony\Component\Console\Output\ConsoleOutput;
 
-    class Magento_Migration extends Command_Operations
+    class MagentoMigration extends CommandOperations
     {
 
 
