@@ -6,7 +6,7 @@ namespace Ector\Cli\Classes\CommandsOperations {
     use Symfony\Component\Console\Helper\ProgressBar;
     use Symfony\Component\Console\Output\ConsoleOutput;
 
-    class MagentoMigration extends CommandOperations
+    class MagentoMigration extends CommandsOperations
     {
 
 

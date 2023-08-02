@@ -2,7 +2,7 @@
 
 namespace Ector\Cli\Classes\CommandsOperations {
 
-    abstract class CommandOperations
+    abstract class CommandsOperations
     {
         abstract public static function execute();
     }

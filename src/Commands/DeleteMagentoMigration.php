@@ -2,7 +2,7 @@
 
 namespace Ector\Cli\Commands;
 
-use Ector\Cli\Classes\Commands_Operations\Delete_Magento_Migration;
+use Ector\Cli\Classes\CommandsOperations\DeleteMagentoMigration as DeleteMagento;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -23,7 +23,7 @@ class DeleteMagentoMigration extends Command
         $output->writeln('Deleting Magento migration urls from database...');
 
         try {
-            Delete_Magento_Migration::execute();
+            DeleteMagento::execute();
             $output->writeln('<info>Operation completed!</info>');
             return 0;
         } catch (\Exception $e) {

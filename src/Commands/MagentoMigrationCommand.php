@@ -2,7 +2,7 @@
 
 namespace Ector\Cli\Commands;
 
-use Ector\Cli\Classes\Commands_Operations\Magento_Migration;
+use Ector\Cli\Classes\CommandsOperations\MagentoMigration;
 use Ector\Cli\Classes\Tools\Env_Loader;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -35,7 +35,7 @@ class MagentoMigrationCommand extends Command
         $output->writeln('Migrating from Magento to PrestaShop...');
 
         try {
-            Magento_Migration::execute();
+            MagentoMigration::execute();
             return 0;
         } catch (\Exception $e) {
             throw new \Exception($e->getMessage());

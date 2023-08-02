@@ -2,7 +2,7 @@
 
 namespace Ector\Cli\Classes\CommandsOperations {
 
-    class DeleteMagentoMigration extends CommandOperations
+    class DeleteMagentoMigration extends CommandsOperations
     {
         public static function execute()
         {
