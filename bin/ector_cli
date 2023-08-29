@@ -1,13 +1,11 @@
 #!/usr/bin/env php
 <?php
 
-if (!defined(_PS_VERSION_)) throw new \Exception("Oops! Seems like you're not in a PrestaShop Environment!");
-
 $path = dirname(__FILE__) . "/../../../config/config.inc.php";
 $isPsEnvironment = file_exists($path);
 
 if ($isPsEnvironment) require_once $path;
-$isPsEnvironment = defined(_PS_VERSION_);
+$isPsEnvironment = defined("_PS_VERSION_");
 
 
 require_once __DIR__ . '/../vendor/autoload.php';

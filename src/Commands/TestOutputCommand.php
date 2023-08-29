@@ -19,6 +19,7 @@ class TestOutputCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $output->writeln('<info>Test command executed successfully!</info>');
         return 0;
     }
 }

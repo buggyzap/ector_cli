@@ -7,9 +7,11 @@
  * @version 0.0.1
  */
 
-if (!defined('_PS_VERSION_')) exit;
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
 
-require_once('vendor/autoload.php');
+if (file_exists("vendor/autoload.php")) require_once "vendor/autoload.php";
 
 class Ector_cli extends Module
 {
