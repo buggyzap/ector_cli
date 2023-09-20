@@ -31,7 +31,7 @@ class MagentoMigrationCommand extends Command
     {
 
         $helper = $this->getHelper('question');
-        $output->writeln("This command will copy Magento permalinks stored in your Magento database to cleanup data. Please double check that your sku on Magento is the same as Prestashop. \n \n Please enter your database credentials \n");
+        $output->writeln("This command will transform Magento permalinks stored in your Magento database to prestashop redirects url. Please double check that your sku on Magento is the same as Prestashop. \n \n Please enter your database credentials \n");
 
         if (!self::TEST_MODE) {
             $dbHostname = $helper->ask($input, $output, new Question('Enter the database hostname: '));
