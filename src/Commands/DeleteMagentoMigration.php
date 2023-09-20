@@ -39,7 +39,7 @@ class DeleteMagentoMigration extends Command
             throw new \Exception("Magento permalinks deletion aborted.");
         }
 
-        $sql = "DELETE FROM " . _DB_PREFIX_ . "lgseoredirect WHERE is_magento = 1";
+        $sql = "DELETE FROM " . _DB_PREFIX_ . "lgseoredirect";
         \Db::getInstance()->execute($sql);
 
 

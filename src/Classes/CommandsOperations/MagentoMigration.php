@@ -117,7 +117,8 @@ class MagentoMigration
         $progressBar = new ProgressBar($output, count($skus));
         $progressBar->start();
 
-        $failed = 0;
+        $failed = [];
+        $row = 1;
 
         foreach ($skus as $sku) {
 
@@ -126,7 +127,8 @@ class MagentoMigration
             $urls = $this->getMagentoUrlsBySku($sku, $this->prefix, $this->storeId);
             $ps_url = $this->getPrestashopUrlBySku($sku);
             if ($urls === null) {
-                $failed++;
+                $failed[] = [$row, $sku, $ps_url];
+                $row++;
                 continue;
             }
 
@@ -141,7 +143,9 @@ class MagentoMigration
 
         $progressBar->finish();
 
-        $output->writeln("\n\n <info>Magento migration completed successfully! $failed records failed without url matches.</info>");
+        $output->writeln("\n\n <info>Magento migration completed successfully! " . count($failed) . " records failed without url matches.</info>");
+
+        return $failed;
     }
 
     private function createRedirect($path, $new)
@@ -149,7 +153,7 @@ class MagentoMigration
 
         $shops = \Shop::getShops(true, null, true);
 
-        foreach ($shops as $shop) {
+        foreach ($shops as $id => $shop) {
 
             // add / at the start of path if not present
             if (strpos($path, "/") !== 0) $path = "/" . $path;
@@ -160,8 +164,8 @@ class MagentoMigration
                     "url_old" => $path,
                     "url_new" => $new,
                     "redirect_type" => 301,
-                    "update" => new \DateTime("Y-m-d H:i:s"),
-                    "id_shop" => $shop["id_shop"],
+                    "update" => date("Y-m-d H:i:s"),
+                    "id_shop" => $id,
                     "pnf" => 0
                 ]
             );

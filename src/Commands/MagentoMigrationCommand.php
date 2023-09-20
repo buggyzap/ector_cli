@@ -7,6 +7,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
+use Symfony\Component\Console\Helper\Table;
 
 class MagentoMigrationCommand extends Command
 {
@@ -30,7 +31,7 @@ class MagentoMigrationCommand extends Command
     {
 
         $helper = $this->getHelper('question');
-        $output->writeln("This command will copy Magento permalinks stored in your Magento database to cleanup data. \n \n Please enter your database credentials \n");
+        $output->writeln("This command will copy Magento permalinks stored in your Magento database to cleanup data. Please double check that your sku on Magento is the same as Prestashop. \n \n Please enter your database credentials \n");
 
         if (!self::TEST_MODE) {
             $dbHostname = $helper->ask($input, $output, new Question('Enter the database hostname: '));
@@ -57,7 +58,15 @@ class MagentoMigrationCommand extends Command
         $storeId = $helper->ask($input, $output, new Question('Enter the store id: ', 1));
 
         $magentoMigration = new MagentoMigration($PDO, $prefix, $storeId);
-        $magentoMigration->execute();
+        $failed = $magentoMigration->execute();
+
+        if (count($failed) > 0) {
+            $table = new Table($output);
+            $table
+                ->setHeaders(['N', 'SKU', 'Prestashop URL'])
+                ->setRows($failed);
+            $table->render();
+        }
 
         return 0;
     }
