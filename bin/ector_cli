@@ -13,6 +13,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use Ector\Cli\Commands\MagentoMigrationCommand;
 use Ector\Cli\Commands\TestOutputCommand;
 use Ector\Cli\Commands\DeleteMagentoMigration;
+use Ector\Cli\Commands\CloneModulesCommand;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
@@ -21,5 +22,6 @@ $application = new Application();
 $application->add(new MagentoMigrationCommand());
 $application->add(new TestOutputCommand());
 $application->add(new DeleteMagentoMigration());
+$application->add(new CloneModulesCommand());
 
 $application->run();
