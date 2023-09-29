@@ -9,7 +9,6 @@
     }
   },
   "require": {
-    "vlucas/phpdotenv": "^5.5@dev",
     "knplabs/github-api": "^3.0",
     "guzzlehttp/guzzle": "^7.0.1",
     "http-interop/http-factory-guzzle": "^1.0"

@@ -14,6 +14,7 @@ use Ector\Cli\Commands\MagentoMigrationCommand;
 use Ector\Cli\Commands\TestOutputCommand;
 use Ector\Cli\Commands\DeleteMagentoMigration;
 use Ector\Cli\Commands\CloneModulesCommand;
+use Ector\Cli\Commands\GenerateProductsCommand;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
@@ -23,5 +24,6 @@ $application->add(new MagentoMigrationCommand());
 $application->add(new TestOutputCommand());
 $application->add(new DeleteMagentoMigration());
 $application->add(new CloneModulesCommand());
+$application->add(new GenerateProductsCommand());
 
 $application->run();
