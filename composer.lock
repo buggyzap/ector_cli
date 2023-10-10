@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6cba6b04e2d5d0077a0a6b1007700f9a",
+    "content-hash": "0b1054a36649ae647928532b8deb8414",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -72,6 +72,64 @@
                 }
             ],
             "time": "2023-08-28T09:30:22+00:00"
+        },
+        {
+            "name": "ector/checker",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/buggyzap/ector_checker.git",
+                "reference": "8e6c14e09062f3a385f52f415ab558b77ca08321"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/buggyzap/ector_checker/zipball/8e6c14e09062f3a385f52f415ab558b77ca08321",
+                "reference": "8e6c14e09062f3a385f52f415ab558b77ca08321",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.0",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.21.1",
+                "phpunit/phpunit": "^10.3.2",
+                "spatie/ray": "^1.28"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ector\\Checker\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "DGCAL SRL",
+                    "email": "m.ingraiti@dgcal.it",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Check the key validity",
+            "homepage": "https://github.com/ector/ector-checker",
+            "keywords": [
+                "ector",
+                "ector-checker"
+            ],
+            "support": {
+                "issues": "https://github.com/buggyzap/ector_checker/issues",
+                "source": "https://github.com/buggyzap/ector_checker/tree/1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Ector",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-10-10T11:50:32+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",

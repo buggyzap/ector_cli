@@ -1,4 +1,5 @@
 .PHONY: help zip-me version release merge
+ZIP_FILES := $(shell cat ./.zip_files)
 
 # target: merge - Merge develop into master
 merge:
@@ -18,14 +19,9 @@ zip-me:
 	@mkdir -p ./temp/$(MODULE_NAME)
 	@mkdir -p ./releases
 
-	@cp -R ./bin temp/$(MODULE_NAME)
-	@cp -R ./src temp/$(MODULE_NAME)
-	@cp -R ./vendor temp/$(MODULE_NAME)
-
-	@cp -R ./*.php temp/$(MODULE_NAME)
-	@cp -R ./*.md temp/$(MODULE_NAME)
-	@cp -R ./*.png temp/$(MODULE_NAME)
-	@cp -R ./*.txt temp/$(MODULE_NAME)
+	@for file in $(ZIP_FILES); do \
+		cp -R $$file ./temp/$(MODULE_NAME); \
+	done
 	
 	@rm -rf ./releases/$(MODULE_NAME).zip
 	@cd temp && zip -rq ../releases/$(MODULE_NAME).zip $(MODULE_NAME) && cd ..
