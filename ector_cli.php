@@ -21,10 +21,10 @@ class Ector_cli extends Module
 
     public function __construct()
     {
+        $this->initializeModule();
         if ($this->checker === null && $this->context->controller instanceof AdminController) {
             $this->checker = $this->get("ector.checker");
         }
-        $this->initializeModule();
     }
 
     public function install()
