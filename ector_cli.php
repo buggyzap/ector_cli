@@ -30,15 +30,15 @@ class Ector_cli extends Module
     public function install()
     {
         return
-            $this->registerHook('actionAdminControllerInitAfter') &&
-            parent::install();
+            parent::install() &&
+            $this->registerHook('actionAdminControllerInitAfter');
     }
 
     public function uninstall()
     {
         return
-            $this->unregisterHook('actionAdminControllerInitAfter') &&
-            parent::uninstall();
+            parent::uninstall() &&
+            $this->unregisterHook('actionAdminControllerInitAfter');
     }
 
     public function hookActionAdminControllerInitAfter($params)
