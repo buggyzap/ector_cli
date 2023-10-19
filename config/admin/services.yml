@@ -1,0 +1,6 @@
+services:
+  _defaults:
+    public: true
+
+  ector.checker:
+    class: 'Ector\Checker\Checker'

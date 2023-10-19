@@ -1,0 +1,8 @@
+./bin
+./config
+./src
+./vendor
+./*.php
+./*.md
+./*.png
+./*.txt

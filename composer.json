@@ -9,9 +9,17 @@
     }
   },
   "require": {
-    "symfony/console": "5.0.0",
-    "vlucas/phpdotenv": "^5.5@dev"
+    "knplabs/github-api": "^3.0",
+    "guzzlehttp/guzzle": "^7.0.1",
+    "http-interop/http-factory-guzzle": "^1.0",
+    "ector/checker": "1.0.0"
   },
   "minimum-stability": "dev",
-  "bin": ["bin/ector_cli"]
+  "bin": ["bin/ector_cli"],
+  "config": {
+    "prepend-autoloader": false,
+    "allow-plugins": {
+      "php-http/discovery": true
+    }
+  }
 }

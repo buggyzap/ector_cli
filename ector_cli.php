@@ -1,38 +1,52 @@
 <?php
 
 /**
- * Ector Cli - A Prestashop Module
+ * Ector Cli
  * 
  * @author DGCAL SRL <m.ingraiti@dgcal.it>
  * @version 0.0.1
  */
 
-if (!defined('_PS_VERSION_')) exit;
+if (!defined('_PS_VERSION_')) {
+    exit;
+}
 
-require_once('vendor/autoload.php');
+if (file_exists(__DIR__ . "/vendor/autoload.php"))
+    require_once __DIR__ . "/vendor/autoload.php";
 
 class Ector_cli extends Module
 {
 
+    private $checker;
+
     public function __construct()
     {
         $this->initializeModule();
+        if ($this->checker === null && $this->context->controller instanceof AdminController) {
+            $this->checker = $this->get("ector.checker");
+        }
     }
 
     public function install()
     {
         return
-            parent::install();
+            parent::install() &&
+            $this->registerHook('actionAdminControllerInitAfter');
     }
 
     public function uninstall()
     {
         return
-            parent::uninstall();
+            parent::uninstall() &&
+            $this->unregisterHook('actionAdminControllerInitAfter');
     }
 
+    public function hookActionAdminControllerInitAfter($params)
+    {
+        $controller = $params["controller"];
+        $this->checker->healthCheck($controller);
+    }
 
-    /** Initialize the module declaration */
     private function initializeModule()
     {
         $this->name = 'ector_cli';
