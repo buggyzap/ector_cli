@@ -4,7 +4,8 @@
 $path = dirname(__FILE__) . "/../../../config/config.inc.php";
 $isPsEnvironment = file_exists($path);
 
-if ($isPsEnvironment) require_once $path;
+if ($isPsEnvironment)
+    require_once $path;
 $isPsEnvironment = defined("_PS_VERSION_");
 
 
@@ -15,6 +16,7 @@ use Ector\Cli\Commands\TestOutputCommand;
 use Ector\Cli\Commands\DeleteMagentoMigration;
 use Ector\Cli\Commands\CloneModulesCommand;
 use Ector\Cli\Commands\GenerateProductsCommand;
+use Ector\Cli\Commands\Override\CreateCommand;
 use Symfony\Component\Console\Application;
 
 $application = new Application();
@@ -25,5 +27,6 @@ $application->add(new TestOutputCommand());
 $application->add(new DeleteMagentoMigration());
 $application->add(new CloneModulesCommand());
 $application->add(new GenerateProductsCommand());
+$application->add(new CreateCommand());
 
 $application->run();
