@@ -17,14 +17,9 @@ if (file_exists(__DIR__ . "/vendor/autoload.php"))
 class Ector_cli extends Module
 {
 
-    private $checker;
-
     public function __construct()
     {
         $this->initializeModule();
-        if ($this->checker === null && $this->context->controller instanceof AdminController) {
-            $this->checker = $this->get("ector.checker");
-        }
     }
 
     public function install()
@@ -44,7 +39,8 @@ class Ector_cli extends Module
     public function hookActionAdminControllerInitAfter($params)
     {
         $controller = $params["controller"];
-        $this->checker->healthCheck($controller);
+        $checker = $this->get("ector.checker");
+        $checker->healthCheck($controller);
     }
 
     private function initializeModule()
